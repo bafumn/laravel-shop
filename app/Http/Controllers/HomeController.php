@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends BaseController
 {
-    public function index(Category $category)
+    public function index()
     {
-        $categories = Category::all();
-        return view('home/index', ['categories' => $categories]);
+        $products = Product::take(10)->get();
+        $latest = Product::orderBy('created_at', 'desc')->take(3)->get();
+        return view('home/index', compact('products', 'latest'));
     }
 
     public function contact()
