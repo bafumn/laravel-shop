@@ -137,7 +137,9 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="#">Fresh Meat</a></li>
+                        @foreach($categories as $category)
+                            <li><a href="">{{ $category->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

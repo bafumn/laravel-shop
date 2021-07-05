@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends BaseController
 {
-    public function index()
+    public function index(Category $category)
     {
-        return view('home/index');
+        $categories = Category::all();
+        return view('home/index', ['categories' => $categories]);
     }
 
     public function contact()
