@@ -10,7 +10,7 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        $products = Product::take(10)->get();
+        $products = Product::paginate(10);
         $latest = Product::orderBy('created_at', 'desc')->take(3)->get();
         return view('home/index', compact('products', 'latest'));
     }
