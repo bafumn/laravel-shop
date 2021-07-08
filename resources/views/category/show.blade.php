@@ -1,6 +1,6 @@
 @extends('layouts/master')
 
-@section('title', 'Larashop')
+@section('title', $category->name)
 
 @section('content')
     <!-- Product Section Begin -->
@@ -23,7 +23,7 @@
                                 @foreach($latest as $product)
                                     <a href="{{ route('product', $product->id) }}" class="latest-product__item">
                                         <div class="latest-product__item__pic">
-                                            <img src="{{ $product->image ?? '/img/no-image.png'}}" style="width: auto" alt="">
+                                            <img src="{{ $product->image ?? '/img/no-image.png'}}"  style="width: auto" alt="">
                                         </div>
                                         <div class="latest-product__item__text">
                                             <h6>{{ $product->name }}</h6>
@@ -41,7 +41,7 @@
                         @foreach($products as $product)
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg"
+                                    <div class="product__item__pic set-bg "
                                          data-setbg="{{ $product->image ?? '/img/no-image.png'}}">
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
